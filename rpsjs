@@ -1,0 +1,57 @@
+//function to initiate program
+function start(){
+    var userInput=readLine("Rock, Paper or Scissors?");
+    println("You chose " + userInput);
+    var compInput=compRPS();
+    println("The computer chose " + compInput);
+    var winner=determineWinner(userInput, compInput);
+    println(winner);
+    }
+    
+// random function to create the computer's input
+function compRPS(){
+var randomRPS = Math.floor(Math.random() * 3) + 1;   //Use random function to make computer input
+if (randomRPS==1) {
+  randomRPS="rock";
+} else if (randomRPS==2) {
+  randomRPS="paper";
+} else {
+  randomRPS="scissors";
+}
+return randomRPS;
+}
+
+//function to determine winner
+function determineWinner(user,computer) {
+    
+    var winner ='';
+   
+  if (user.toLowerCase() === 'rock') {
+    if (computer ==='rock') {
+      winner = "We both chose rock, it's a tie";
+    } else if (computer ==='paper') {
+        winner =  "Computer's paper covers your rock";
+    } else {
+        winner = "Your rock dulls the computer's scissors";
+    }
+    
+    } else if (user.toLowerCase() === 'paper') {
+      if (computer ==='paper') {
+        winner = "We both chose paper, it's a tie";
+      } else if (computer ==='scissors') {
+        winner = "Computer's scissors cut your paper";
+      } else {
+          winner = "Your paper covers the computer's rock";
+      }
+      } else if (user.toLowerCase() ==='scissors'){
+        if (computer ==='scissors') {
+          winner = "We both chose scissors, it's a tie";
+        } else if (computer ==='rock') {
+            winner = "Computer's rock dulls your scissors";
+        } else {
+            winner = "Your scissors cut the computer's paper";
+        }
+      }
+      return winner;
+}
+     
